@@ -4,7 +4,7 @@ TurkToken, **Türkçe için özel olarak geliştirilmiş bir tokenizasyon kütü
 Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler sunarak, dil işleme çalışmalarında kullanılan token sayılarını azaltmak, nadir kelimelerle (OOV) daha iyi başa çıkmak ve dil modelleri için daha verimli bir altyapı oluşturmaktır.
 
 <p align="center">
-  <img src="assets/cover.png" alt="TurkToken" width="300">
+  <img src="assets/cover.png" alt="TurkToken" width="400">
 </p>
 
 ---
