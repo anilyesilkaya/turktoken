@@ -1,4 +1,4 @@
-# 🇹🇷 TurkToken
+# TurkToken
 
 TurkToken, **Türkçe için özel olarak geliştirilmiş bir tokenizasyon kütüphanesi ve demo uygulamasıdır**.  
 Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler sunarak, dil işleme çalışmalarında kullanılan token sayılarını azaltmak, nadir kelimelerle (OOV) daha iyi başa çıkmak ve dil modelleri için daha verimli bir altyapı oluşturmaktır.
@@ -31,3 +31,4 @@ Projeyi bilgisayarınıza klonlayın:
 ```bash
 git clone https://github.com/kullanici/turktoken.git
 cd turktoken
+```
