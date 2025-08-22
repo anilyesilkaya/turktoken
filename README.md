@@ -14,7 +14,7 @@ Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler su
 - **Farklı tokenizasyon modları:**
   - [**An itibariyle geliştirilmekte**] Karakter tabanlı
   - [**An itibariyle geliştirilmekte**] Kelime tabanlı
-  - [Yakın zamanda başlanacak]          Alt-kelime tabanlı (BPE)
+  - [Yakın zamanda başlanacak] Alt-kelime tabanlı (BPE)
 - **Türkçe’ye özgü zorluklara çözüm:**
   - Türkçe karakterlerin (ç, ğ, ı, İ, ö, ş, ü) korunması
   - Kesme işaretinin (`’` `'`) tutarlı biçimde işlenmesi
