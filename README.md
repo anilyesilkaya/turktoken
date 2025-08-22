@@ -12,9 +12,9 @@ Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler su
 ## 🚀 Özellikler
 
 - **Farklı tokenizasyon modları:**
-  - [An itibariyle geliştirilmekte] Kelime tabanlı
-  - [An itibariyle geliştirilmekte] Alt-kelime tabanlı (BPE)
-  - [An itibariyle geliştirilmekte] Karakter tabanlı
+  - [**An itibariyle geliştirilmekte**] Karakter tabanlı
+  - [**An itibariyle geliştirilmekte**] Kelime tabanlı
+  - [Yakın zamanda başlanacak] Alt-kelime tabanlı (BPE)
 - **Türkçe’ye özgü zorluklara çözüm:**
   - Türkçe karakterlerin (ç, ğ, ı, İ, ö, ş, ü) korunması
   - Kesme işaretinin (`’` `'`) tutarlı biçimde işlenmesi
