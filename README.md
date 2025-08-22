@@ -1,10 +1,34 @@
-# turktoken
-Turktoken is a simple, tokenizer toolkit for Turkish NLP. Phase 1 ships language-agnostic word-level, subword (BPE), and character-level tokenizers to establish solid baselines. Phase 2 will add Turkish-specific handling—preserving diacritics, normalizing apostrophes, and being smarter around suffix boundaries—for better LLM and search performance.
+# TurkToken
 
-## Mini roadmap
-- Phase 1: Three language-agnostic tokenizers:
-  - Character-level tokenizer
-  - Word-level tokenizer
-  - BPE tokenizer 
+TurkToken, **Türkçe için özel olarak geliştirilmiş bir tokenizasyon kütüphanesi ve demo uygulamasıdır**.  
+Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler sunarak, dil işleme çalışmalarında kullanılan token sayılarını azaltmak, nadir kelimelerle (OOV) daha iyi başa çıkmak ve dil modelleri için daha verimli bir altyapı oluşturmaktır.
 
-- Phase 2: Turkish-aware rules (diacritics, apostrophes), suffix-friendly segmentation, benchmarks and a small web demo.
+<p align="center">
+  <img src="assets/cover.png" alt="TurkToken" width="450">
+</p>
+
+---
+
+## 🚀 Özellikler
+
+- **Farklı tokenizasyon modları:**
+  - [An itibariyle geliştirilmekte] Kelime tabanlı
+  - [An itibariyle geliştirilmekte] Alt-kelime tabanlı (BPE)
+  - [An itibariyle geliştirilmekte] Karakter tabanlı
+- **Türkçe’ye özgü zorluklara çözüm:**
+  - Türkçe karakterlerin (ç, ğ, ı, İ, ö, ş, ü) korunması
+  - Kesme işaretinin (`’` `'`) tutarlı biçimde işlenmesi
+  - Ek sınırlarında daha doğru parçalama
+- **Karşılaştırma imkânı:** SentencePiece ve WordPiece gibi yöntemlerle kıyaslama
+- **Web demo:** Tarayıcı tabanlı, renkli token gösterimi ve hız ölçümleri
+
+---
+
+## 📦 Kurulum
+
+Projeyi bilgisayarınıza klonlayın:
+
+```bash
+git clone https://github.com/kullanici/turktoken.git
+cd turktoken
+```
