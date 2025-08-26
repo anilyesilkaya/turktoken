@@ -11,6 +11,7 @@ Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler su
 
 👉 [Proje Sitesi - turktoken.org](https://turktoken.org)
 
+
 ## 🚀 Özellikler
 
 - **Farklı tokenizasyon modları:**
