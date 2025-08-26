@@ -3,7 +3,6 @@ import re
 import argparse
 import ebooklib
 import json
-
 from helpers import slugify
 from ebooklib import epub
 from bs4 import BeautifulSoup
