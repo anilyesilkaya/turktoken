@@ -9,6 +9,10 @@ Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler su
 
 ---
 
+## Canlı Önizleme
+
+👉 [Proje Sitesi - turktoken.org](https://turktoken.org)
+
 ## 🚀 Özellikler
 
 - **Farklı tokenizasyon modları:**
