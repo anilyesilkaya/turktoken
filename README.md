@@ -7,8 +7,6 @@ Amaç, Türkçenin eklemeli (agglutinative) yapısına daha uygun çözümler su
   <img src="assets/cover.png" alt="TurkToken" width="450">
 </p>
 
----
-
 ## Canlı Önizleme
 
 👉 [Proje Sitesi - turktoken.org](https://turktoken.org)
