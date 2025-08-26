@@ -35,3 +35,30 @@ Projeyi bilgisayarınıza klonlayın:
 git clone https://github.com/kullanici/turktoken.git
 cd turktoken
 ```
+
+#  Detaylar
+
+## Dosya Düzeni
+```
+turktoken/
+├─ Gemfile                  # Ruby bağımlılıklarını tanımlar (Jekyll, eklentiler vs.)
+├─ _config.yml              # Jekyll genel ayar dosyası
+├─ _layouts/                # Sayfa şablonları
+│  └─ yazar.html            # Yazar sayfaları için şablon
+├─ _includes/               # Tekrar kullanılabilir HTML parçaları
+│  └─ chart-top-words.html  # Plotly ile kelime sıklığı grafiği
+├─ _yazarlar/               # Koleksiyon: her yazar için bir markdown dosyası
+│  └─ ahmet-umit.md         # Örnek yazarın bilgileri (front matter)
+├─ _data/                   # JSON veri dosyaları
+│  └─ yazarlar/             # Yazar istatistikleri burada tutulur
+│     └─ ahmet-umit.json    # Yazar slug’ına karşılık gelen kelime frekansları
+├─ assets/                  # Stil ve JavaScript dosyaları
+│  ├─ css/
+│  │  └─ site.css           # Genel site stilleri
+│  └─ js/
+│     └─ site.js            # Genel site işlevleri
+├─ yazarlar/                # Jekyll tarafından oluşturulan sayfalar
+│  └─ index.md              # Tüm yazarların listelendiği sayfa
+└─ index.md                 # Ana sayfa
+
+```
