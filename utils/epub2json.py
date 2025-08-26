@@ -16,7 +16,10 @@ def remove_all_punct(text):
     punct_pattern = r"[.,!?;:\"“”‘’«»()\[\]{}…—–\-–_/\%&*@#^+=<>\\'\u00AD]"
     text = re.sub(punct_pattern, " ", text)
     
-    # Suffixes
+    # Suffixes (In future releases)
+    # This portion will remove the suffixes which don't provide much information
+    # about the book for instance, "de", "da" in Turkish
+    # 
     # suffix_pattern = r"\s(?:de|da)\s"
     # text = re.sub(suffix_pattern, " ", text)
     

@@ -1,0 +1,105 @@
+{% comment %}
+Usage:
+{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}
+- author_slug: filename in _data/authors (without .json)
+- top_n: how many bars (default 25)
+- hide_stopwords: true/false (default false)
+- You can override stopwords via include.stopwords = "ve,bir,bu,..."
+Also supports either "total_stats" or "token_frequencies" key.
+{% endcomment %}
+
+{% assign a = site.data.authors[include.author_slug] %}
+{% assign top_n = include.top_n | default: 25 %}
+{% assign hide_sw = include.hide_stopwords | default: false %}
+
+{% if a %}
+  <section class="author-stats">
+    <h2>{{ a.metadata.author }} — En çok kullanılan kelimeler</h2>
+    {% if a.metadata.titles %}
+      <p class="muted">Kaynak kitaplar: {{ a.metadata.titles | join: ", " }}</p>
+    {% endif %}
+
+    <div class="controls" style="margin:.5rem 0 1rem; display:flex; gap:.75rem; align-items:center;">
+      <label style="display:flex; gap:.35rem; align-items:center;">
+        <input id="sw-{{ include.author_slug }}" type="checkbox" {% if hide_sw %}checked{% endif %}>
+        Sık kullanılan bağlaçları gizle
+      </label>
+      <label style="display:flex; gap:.35rem; align-items:center;">
+        Top N:
+        <input id="n-{{ include.author_slug }}" type="number" min="5" max="100" value="{{ top_n }}" style="width:5rem;">
+      </label>
+      <button id="btn-{{ include.author_slug }}" type="button">Uygula</button>
+    </div>
+
+    <div id="top-words-{{ include.author_slug }}" style="height:640px;"></div>
+
+    <script type="application/json" id="json-{{ include.author_slug }}">
+      {{ a | jsonify }}
+    </script>
+
+    <script>
+      (function(){
+        const slug = "{{ include.author_slug }}";
+        const elChart = "top-words-" + slug;
+        const elJSON  = "json-" + slug;
+        const elSW    = "sw-" + slug;
+        const elN     = "n-" + slug;
+        const elBtn   = "btn-" + slug;
+
+        // Default Turkish stopwords (tweak freely or pass via include.stopwords)
+        const defaultSW = {{ include.stopwords | default: "ve,bir,bu,da,de,için,olarak,daha,gibi,her,olan,ne,o,en,ya,çok,kadar,ki,veya,ama,kendi,ile,tüm,olduğunu,olduğu,diye,aynı,diğer,tek,bile,sonra,ancak,başka,şey" | split: "," | jsonify }};
+
+        function ensurePlotly(cb){
+          if (window.Plotly) return cb();
+          var s=document.createElement('script');
+          s.src='https://cdn.plot.ly/plotly-2.30.0.min.js';
+          s.onload=cb; document.head.appendChild(s);
+        }
+
+        function takeTop(entries, n){
+          return entries.sort((a,b)=>b[1]-a[1]).slice(0, n);
+        }
+
+        function loadData(){
+          const raw = document.getElementById(elJSON).textContent;
+          const obj = JSON.parse(raw);
+          // accept either total_stats or token_frequencies
+          const stats = obj.total_stats || obj.token_frequencies || {};
+          return Object.entries(stats);
+        }
+
+        function render(){
+          const entriesAll = loadData();
+          const hideSW = document.getElementById(elSW).checked;
+          const topN = Math.max(5, Math.min(100, parseInt(document.getElementById(elN).value || "{{ top_n }}", 10)));
+          const swSet = new Set(defaultSW.map(s => s.trim()).filter(Boolean));
+
+          const entries = hideSW
+            ? entriesAll.filter(([w]) => !swSet.has(w))
+            : entriesAll;
+
+          const top = takeTop(entries, topN);
+          const words  = top.map(e=>e[0]).reverse();   // so largest is on top
+          const counts = top.map(e=>e[1]).reverse();
+
+          ensurePlotly(function(){
+            const data = [{ type:"bar", x:counts, y:words, orientation:"h",
+                            hovertemplate:"%{y}: %{x}<extra></extra>" }];
+            const layout = {
+              title: `Top ${topN} — {{ a.metadata.author | escape }}`,
+              margin:{l:140,r:20,t:60,b:40},
+              yaxis:{autorange:"reversed"},
+              xaxis:{title:"Frekans"}
+            };
+            Plotly.newPlot(elChart, data, layout, {responsive:true});
+          });
+        }
+
+        document.getElementById(elBtn).addEventListener('click', render);
+        render(); // initial
+      })();
+    </script>
+  </section>
+{% else %}
+  <p>Yazar verisi bulunamadı: <code>{{ include.author_slug }}</code></p>
+{% endif %}

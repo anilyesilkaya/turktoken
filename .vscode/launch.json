@@ -19,7 +19,7 @@
             "console": "integratedTerminal",
             "args": [
                 "--input", "${workspaceFolder}/../../Turkish Book Corpus/turkish-book-corpus/Türk Yazarlar/",
-                "--output", "${workspaceFolder}/processed/word-level/"
+                "--output", "${workspaceFolder}/../processed/word-level/"
             ]
         },
          {
@@ -30,7 +30,18 @@
             "console": "integratedTerminal",
             "args": [
                 "--input", "${workspaceFolder}/processed/word-level/",
-                "--output", "${workspaceFolder}/processed/word-level-per-auth/"
+                "--output", "${workspaceFolder}/../processed/word-level-per-auth/"
+            ]
+        },
+        {
+            "name": "generate_author_pages.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/generate_author_pages.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--input", "${workspaceFolder}/processed/word-level-per-auth/",
+                "--output", "${workspaceFolder}/../_data/"
             ]
         }
     ]
