@@ -1,51 +1,36 @@
+# Site başlığı ve açıklama
 title: TurkToken
-email:
-description: >-
-  TurkToken is a modern tokenization and text analysis toolkit for Turkish.
+description: "TurkToken is a modern tokenization and text analysis toolkit for Turkish.
   It combines word-, subword- (BPE/Unigram), and byte-level tokenization with
   Turkish diacritic handling, light morphology-aware heuristics, and Jekyll-based
   visualizations. This site publishes per-author top words, token frequencies,
-  and example charts.
+  and example charts."
+lang: tr
 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://turktoken.org"     # the base hostname
-twitter_username: 
-github_username: anilyesilkaya
-
-# Build settings
+# Tema ve eklentiler
 theme: minima
 plugins:
-  - jekyll-feed
-  # (İsteğe bağlı) SEO meta etiketleri için:
-  # - jekyll-seo-tag
+  - jekyll-seo-tag   # SEO için meta etiketleri
+  - jekyll-feed      # RSS feed desteği
 
+# Koleksiyonlar (yazarlar)
 collections:
-  authors:
-    output: true
-    permalink: /yazar/:name/
-    # description: "Yazar bazında kelime sıklıkları ve token analizi sayfaları." # (not used by Jekyll, kept as a note)
+  yazarlar:                # _yazarlar/ klasöründeki dosyaları işler
+    output: true            # HTML çıktısı üret
+    permalink: /yazar/:name/ # URL yapısı -> /yazar/ahmet-umit/
 
-# Defaults so you don’t repeat yourself
+# Varsayılan değerler (default ayarlar)
 defaults:
   - scope:
-      path: "_authors"
-      type: "authors"
+      path: ""              # tüm dosyalar için geçerli
+      type: "yazarlar"      # sadece yazar koleksiyonu
     values:
-      layout: author
-      lang: tr
-      # description: "Bu sayfa ilgili yazarın eserlerinden elde edilen kelime sıklığı grafiğini sunar." 
-      # (Not: Jekyll 'defaults' içinde Liquid çalışmaz; sayfa başına dinamik açıklama istiyorsanız
-      # dosyayı Python ile üretirken 'description' alanını yazmanız en doğrusu.)
+      layout: yazar         # varsayılan layout = yazar.html
 
-# Exclude from processing.
-# exclude:
-#   - .sass-cache/
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+# Link yapısı
+permalink: pretty           # /sayfa/ şeklinde temiz URL’ler
+
+# Markdown ayarları
+markdown: kramdown
+kramdown:
+  input: GFM                # GitHub-Flavored Markdown desteği

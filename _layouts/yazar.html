@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<article>
+  <!-- Author name -->
+  <h1 style="margin-bottom:0.5rem;">{{ page.author }}</h1>
+
+  <!-- List of works -->
+  {% if page.titles and page.titles.size > 0 %}
+    <p style="color:#555;font-size:0.95rem;">
+      <strong>Eserler:</strong> {{ page.titles | join: ", " }}
+    </p>
+  {% endif %}
+
+  <!-- Chart section -->
+  <section style="margin-top:2rem;">
+    <h2 style="margin-bottom:1rem;">En Çok Kullanılan Kelimeler</h2>
+    {% include author-top-words.html 
+         author_slug=page.author_slug 
+         top_n=30 
+         hide_stopwords=true %}
+  </section>
+
+  <!-- Optional: processed date -->
+  {% assign data = site.data.yazarlar[page.author_slug] %}
+  {% if data and data.metadata and data.metadata.processed_at %}
+    <p style="margin-top:2rem;font-size:0.8rem;color:#777;">
+      <em>Veri işlenme tarihi:</em> {{ data.metadata.processed_at }}
+    </p>
+  {% endif %}
+</article>

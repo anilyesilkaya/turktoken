@@ -30,7 +30,7 @@
             "console": "integratedTerminal",
             "args": [
                 "--input", "${workspaceFolder}/processed/word-level/",
-                "--output", "${workspaceFolder}/processed/word-level-per-auth/"
+                "--output", "${workspaceFolder}/_data/yazarlar/"
             ]
         },
         {
@@ -40,8 +40,8 @@
             "program": "${workspaceFolder}/utils/wordstats2markdown.py",
             "console": "integratedTerminal",
             "args": [
-                "--input", "${workspaceFolder}/processed/word-level-per-auth/",
-                "--output", "${workspaceFolder}/_data/"
+                "--input", "${workspaceFolder}/_data/yazarlar/",
+                "--output", "${workspaceFolder}/_yazarlar/"
             ]
         }
     ]

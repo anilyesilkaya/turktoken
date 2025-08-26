@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'tr' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>
+    {% if page.title %}
+      {{ page.title }} | {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  </title>
+
+  {%- seo -%} <!-- jekyll-seo-tag plugin -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+
+  <!-- Plotly for charts -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+
+  <!-- Custom JS -->
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header" style="padding:1rem;border-bottom:1px solid #eee;">
+    <a href="{{ '/' | relative_url }}" style="font-weight:bold;font-size:1.2rem;text-decoration:none;">
+      {{ site.title }}
+    </a>
+    <nav style="float:right;">
+      <a href="{{ '/yazarlar/' | relative_url }}">Yazarlar</a>
+    </nav>
+  </header>
+
+  <!-- Main content -->
+  <main class="site-main" style="max-width:800px;margin:2rem auto;padding:0 1rem;">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer" style="padding:1rem;text-align:center;font-size:0.9rem;color:#666;border-top:1px solid #eee;">
+    © {{ "now" | date: "%Y" }} {{ site.title }} · Built with Jekyll
+  </footer>
+</body>
+</html>

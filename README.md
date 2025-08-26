@@ -41,24 +41,25 @@ cd turktoken
 ## Dosya Düzeni
 ```
 turktoken/
-├─ Gemfile                  # Ruby bağımlılıklarını tanımlar (Jekyll, eklentiler vs.)
-├─ _config.yml              # Jekyll genel ayar dosyası
-├─ _layouts/                # Sayfa şablonları
-│  └─ yazar.html            # Yazar sayfaları için şablon
-├─ _includes/               # Tekrar kullanılabilir HTML parçaları
-│  └─ chart-top-words.html  # Plotly ile kelime sıklığı grafiği
-├─ _yazarlar/               # Koleksiyon: her yazar için bir markdown dosyası
-│  └─ ahmet-umit.md         # Örnek yazarın bilgileri (front matter)
-├─ _data/                   # JSON veri dosyaları
-│  └─ yazarlar/             # Yazar istatistikleri burada tutulur
-│     └─ ahmet-umit.json    # Yazar slug’ına karşılık gelen kelime frekansları
-├─ assets/                  # Stil ve JavaScript dosyaları
+├─ Gemfile
+├─ _config.yml
+├─ _layouts/
+│  ├─ default.html          # site genelinde kullanılan temel şablon
+│  └─ yazar.html            # yazar sayfaları için özel şablon (default’tan türetilir)
+├─ _includes/
+│  └─ author-top-words.html # yazarın en çok geçen kelimelerini Plotly grafiğiyle gösteren include
+├─ _yazarlar/               # koleksiyon: her yazar için bir markdown dosyası (metadata)
+│  └─ ahmet-umit.md
+├─ _data/
+│  └─ yazarlar/             # yazar istatistik JSON’ları, slug ismine göre
+│     └─ ahmet-umit.json
+├─ assets/
 │  ├─ css/
-│  │  └─ site.css           # Genel site stilleri
+│  │  └─ site.css           # site için genel stil dosyaları
 │  └─ js/
-│     └─ site.js            # Genel site işlevleri
-├─ yazarlar/                # Jekyll tarafından oluşturulan sayfalar
-│  └─ index.md              # Tüm yazarların listelendiği sayfa
-└─ index.md                 # Ana sayfa
+│     └─ site.js            # site için genel JavaScript dosyaları
+├─ yazarlar/
+│  └─ index.md              # tüm yazarların listelendiği sayfa
+└─ index.md                 # ana sayfa, /yazarlar/ sayfasına yönlendirir
 
 ```

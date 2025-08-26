@@ -1,19 +1,48 @@
 ---
 layout: default
-title: "Yazarlar"
+title: Yazarlar
 permalink: /yazarlar/
+lang: tr
 ---
 
 <h1>Yazarlar</h1>
-<ul class="author-list">
-{% assign keys = site.data.authors | keys | sort %}
-{% for k in keys %}
-  {% assign a = site.data.authors[k] %}
-  <li>
-    <a href="{{ '/yazar/' | append: k | append: '/' | relative_url }}">
-      {{ a.metadata.author | default: k }}
-    </a>
-    <small> ({{ a.metadata.titles | size }} kitap)</small>
-  </li>
-{% endfor %}
-</ul>
+
+{%- comment -%}
+Önce koleksiyon tanımlıysa (_config.yml -> collections.yazarlar) onu kullan.
+Yoksa _data/yazarlar/*.json üzerinden sayfaları (author_slug eşleşmesiyle) bul.
+Tüm durumlarda nil güvenli (nil-safe) olacak şekilde yazıldı.
+{%- endcomment -%}
+
+{%- assign coll = site.yazarlar -%}
+
+{%- if coll -%}
+  {%- assign authors = coll | sort_natural: "author" -%}
+  <ul class="author-list">
+  {%- for p in authors -%}
+    {%- assign name = p.author | default: p.title -%}
+    <li><a href="{{ p.url }}">{{ name }}</a></li>
+  {%- endfor -%}
+  </ul>
+{%- else -%}
+  {%- assign ydata = site.data.yazarlar -%}
+  {%- if ydata -%}
+    {%- assign slugs = ydata | keys | sort_natural -%}
+    <ul class="author-list">
+    {%- for slug in slugs -%}
+      {%- assign rec   = ydata[slug] -%}
+      {%- assign name  = rec.metadata.author | default: slug -%}
+      {%- assign page_ = site.pages | where: "author_slug", slug | first -%}
+      <li>
+        {%- if page_ -%}
+          <a href="{{ page_.url }}">{{ name }}</a>
+        {%- else -%}
+          {{ name }}
+        {%- endif -%}
+      </li>
+    {%- endfor -%}
+    </ul>
+  {%- else -%}
+    <p>Şimdilik listelenecek yazar bulunamadı. Lütfen <code>_config.yml</code> içinde
+    <code>collections.yazarlar</code> tanımlayın veya <code>_data/yazarlar/*.json</code> ekleyin.</p>
+  {%- endif -%}
+{%- endif -%}
