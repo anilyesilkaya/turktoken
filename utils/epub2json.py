@@ -4,11 +4,11 @@ import argparse
 import ebooklib
 import json
 
-from utils.helpers import slugify
+from helpers import slugify
 from ebooklib import epub
 from bs4 import BeautifulSoup
 from pathlib import Path
-
+from datetime import datetime
 
 def remove_all_punct(text):
         
@@ -105,7 +105,8 @@ def main() -> None:
             # Metadata
             metadata = {
                 "title": baslik,
-                "author": yazar
+                "author": yazar,
+                "processed_at": datetime.now().isoformat(timespec="seconds")
             }
             
             # Lump the metadata into the statistics

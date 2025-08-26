@@ -15,33 +15,33 @@
             "name": "epub2json.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/epub2json.py",
+            "program": "${workspaceFolder}/utils/epub2json.py",
             "console": "integratedTerminal",
             "args": [
                 "--input", "${workspaceFolder}/../../Turkish Book Corpus/turkish-book-corpus/Türk Yazarlar/",
-                "--output", "${workspaceFolder}/../processed/word-level/"
-            ]
-        },
-         {
-            "name": "json2stats.py",
-            "type": "debugpy",
-            "request": "launch",
-            "program": "${workspaceFolder}/json2stats.py",
-            "console": "integratedTerminal",
-            "args": [
-                "--input", "${workspaceFolder}/processed/word-level/",
-                "--output", "${workspaceFolder}/../processed/word-level-per-auth/"
+                "--output", "${workspaceFolder}/processed/word-level/"
             ]
         },
         {
-            "name": "generate_author_pages.py",
+            "name": "json2wordstats.py",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/generate_author_pages.py",
+            "program": "${workspaceFolder}/utils/json2wordstats.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--input", "${workspaceFolder}/processed/word-level/",
+                "--output", "${workspaceFolder}/processed/word-level-per-auth/"
+            ]
+        },
+        {
+            "name": "wordstats2markdown.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/utils/wordstats2markdown.py",
             "console": "integratedTerminal",
             "args": [
                 "--input", "${workspaceFolder}/processed/word-level-per-auth/",
-                "--output", "${workspaceFolder}/../_data/"
+                "--output", "${workspaceFolder}/_data/"
             ]
         }
     ]

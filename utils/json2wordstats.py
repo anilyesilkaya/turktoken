@@ -3,6 +3,7 @@ import argparse
 import re
 import json
 from pathlib import Path
+from datetime import datetime
 
 def main() -> None:
     # Function argument parsing
@@ -49,7 +50,8 @@ def main() -> None:
         # Save the final data in a JSON file
         metadata = {
             "author": author,
-            "titles" : auth_titles
+            "titles" : auth_titles,
+            "processed_at" : datetime.now().isoformat(timespec="seconds")
         }
         
         # auth_stats is sorted to be in descending order
