@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Ahmet Ümit — En çok kullanılan kelimeler
 description: Ahmet Ümit eserlerinin kelime sıklığı grafiği.
 author: Ahmet Ümit
@@ -17,4 +17,3 @@ titles:
 - İnsan Ruhunun Haritası
 - Beyoğlu Rapsodisi
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

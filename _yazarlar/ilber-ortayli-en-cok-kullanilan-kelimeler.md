@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: İlber Ortaylı — En çok kullanılan kelimeler
 description: İlber Ortaylı eserlerinin kelime sıklığı grafiği.
 author: İlber Ortaylı
@@ -20,4 +20,3 @@ titles:
 - Avrupa Ve Biz
 - Osmanlı Devleti'nde Kadı
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

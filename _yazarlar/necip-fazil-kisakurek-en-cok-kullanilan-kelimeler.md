@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Necip Fazıl Kısakürek — En çok kullanılan kelimeler
 description: Necip Fazıl Kısakürek eserlerinin kelime sıklığı grafiği.
 author: Necip Fazıl Kısakürek
@@ -23,4 +23,3 @@ titles:
 - Aynadaki Yalan
 - Batı Tefekkuru ve İslam Tasavvufu
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

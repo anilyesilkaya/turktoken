@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Kemal Tahir — En çok kullanılan kelimeler
 description: Kemal Tahir eserlerinin kelime sıklığı grafiği.
 author: Kemal Tahir
@@ -29,4 +29,3 @@ titles:
 - Zehra nın Defteri (Bütün Öyküleri 2 )
 - Namusçular (Malatya Cezaevi notları )
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

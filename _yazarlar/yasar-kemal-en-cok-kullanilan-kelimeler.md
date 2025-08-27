@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Yaşar Kemal — En çok kullanılan kelimeler
 description: Yaşar Kemal eserlerinin kelime sıklığı grafiği.
 author: Yaşar Kemal
@@ -13,4 +13,3 @@ titles:
 - İnce Memed 4
 - İnce Memed 1
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

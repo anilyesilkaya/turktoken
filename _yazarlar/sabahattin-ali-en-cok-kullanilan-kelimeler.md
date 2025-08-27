@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Sabahattin Ali — En çok kullanılan kelimeler
 description: Sabahattin Ali eserlerinin kelime sıklığı grafiği.
 author: Sabahattin Ali
@@ -19,4 +19,3 @@ titles:
 - Kamyon-Seçme Öyküler
 - Markopaşa Yazıları ve Ötekiler
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

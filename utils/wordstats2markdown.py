@@ -12,7 +12,7 @@ def to_md(data) -> str:
     ''' Build the Markdown text (front matter + trailing ---) for each author.'''
     author_slug = slugify(data['metadata']['author'])
     front_matter = {
-        "layout" : "default",
+        "layout" : "yazar",
         "title" : data['metadata']['author'] + " — En çok kullanılan kelimeler",
         "description" : data['metadata']['author'] + " eserlerinin kelime sıklığı grafiği.",
         "author" : data['metadata']['author'],

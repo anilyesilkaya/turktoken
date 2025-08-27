@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Ömer Seyfettin — En çok kullanılan kelimeler
 description: Ömer Seyfettin eserlerinin kelime sıklığı grafiği.
 author: Ömer Seyfettin
@@ -12,4 +12,3 @@ titles:
 - Kaşağı
 - Balkan Harbi Hatıraları
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

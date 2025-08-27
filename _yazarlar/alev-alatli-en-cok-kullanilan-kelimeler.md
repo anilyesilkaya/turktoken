@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Alev Alatlı — En çok kullanılan kelimeler
 description: Alev Alatlı eserlerinin kelime sıklığı grafiği.
 author: Alev Alatlı
@@ -13,4 +13,3 @@ titles:
 - Batıya Yön Veren Metinler cilt 4
 - Batıya Yön Veren Metinler cilt 1
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Oğuz Atay — En çok kullanılan kelimeler
 description: Oğuz Atay eserlerinin kelime sıklığı grafiği.
 author: Oğuz Atay
@@ -12,4 +12,3 @@ titles:
 - Korkuyu Beklerken
 - Eylembilim
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Aziz Nesin — En çok kullanılan kelimeler
 description: Aziz Nesin eserlerinin kelime sıklığı grafiği.
 author: Aziz Nesin
@@ -19,4 +19,3 @@ titles:
 - Yaşar Ne Yaşar Ne Yaşamaz
 - Bay Düdük
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

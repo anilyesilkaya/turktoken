@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Halil İnalcık — En çok kullanılan kelimeler
 description: Halil İnalcık eserlerinin kelime sıklığı grafiği.
 author: Halil İnalcık
@@ -12,4 +12,3 @@ titles:
 - İş Bankası Kültür Yayınları - Devlet-i Aliyye
 - Devleti Aliyye Osmanlı İmparatorluğu Üzerine Araştırmalar 2
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Rıfat Ilgaz — En çok kullanılan kelimeler
 description: Rıfat Ilgaz eserlerinin kelime sıklığı grafiği.
 author: Rıfat Ilgaz
@@ -12,4 +12,3 @@ titles:
 - Hababam Sınıfı
 - Sarı Yazma
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

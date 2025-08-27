@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Yusuf Atılgan — En çok kullanılan kelimeler
 description: Yusuf Atılgan eserlerinin kelime sıklığı grafiği.
 author: Yusuf Atılgan
@@ -12,4 +12,3 @@ titles:
 - Bütün Öyküleri
 - Canistan
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}

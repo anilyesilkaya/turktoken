@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: yazar
 title: Tezer Özlü — En çok kullanılan kelimeler
 description: Tezer Özlü eserlerinin kelime sıklığı grafiği.
 author: Tezer Özlü
@@ -16,4 +16,3 @@ titles:
 - Yaşamın Ucuna Yolculuk (1)
 - Zaman Dışı Yaşam
 ---
-{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}
