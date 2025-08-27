@@ -28,9 +28,8 @@ def to_md(data) -> str:
         sort_keys=False,
         width=10_000, # do not wrap long lines
     )
-    content = "{% include author-top-words.html author_slug=page.author_slug top_n=30 hide_stopwords=true %}"
     
-    return f"---\n{yaml_text}---\n{content}\n"
+    return f"---\n{yaml_text}---"
 
 def main() -> None:
     # Function argument parsing
