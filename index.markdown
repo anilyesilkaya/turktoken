@@ -4,6 +4,13 @@ title: TurkToken
 ---
 
 # TurkToken
-Yazar bazlı kelime istatistikleri.
+TurkToken, Türkçenin yapısına göre tasarlanmış, açık kaynak bir tokenizasyon (altbirimleme) kütüphanesidir.
+İngilizce odaklı kütüphanelerin (ör. tiktoken) altbirim düzeyinde kaçırdığı ayrıntıları yakalar ve Türkçe tabanlı büyük dil modeli çalışmalarına sağlam bir temel sunar. Kaynak kodu ve lisans bilgileri TurkToken deposunda yer alır.
 
-- 👉 [Tüm yazarlar]({{ '/yazarlar/' | relative_url }})
+**Desteklenen altbirimleme türleri**
+- Karakter düzeyi
+- Kelime düzeyi
+- Altbirim (BPE)
+
+**Ek özellik**
+- Yazar bazlı kelime istatistikleri

@@ -2,6 +2,11 @@
 layout: default
 ---
 <article>
+  <!-- Back button -->
+  <p style="margin:1rem 0;">
+    <a href="{{ '/yazarlar/' | relative_url }}" style="text-decoration:none;">← Yazarlar listesine dön</a>
+  </p>
+
   <!-- Author name -->
   <h1 style="margin-bottom:0.5rem;">{{ page.author }}</h1>
 
@@ -14,11 +19,13 @@ layout: default
 
   <!-- Chart section -->
   <section style="margin-top:2rem;">
-    <h2 style="margin-bottom:1rem;">En Çok Kullanılan Kelimeler</h2>
-    {% include author-top-words.html 
-         author_slug=page.author_slug 
-         top_n=30 
-         hide_stopwords=true %}
+    <h2 style="margin-bottom:1rem;">Yazarın En Çok Kullandığı Kelimeler</h2>
+    {% include author-top-words.html
+      author_slug=page.author_slug
+      top_n=30
+      hide_stopwords=true
+      normalize="percent" %}
+
   </section>
 
   <!-- Optional: processed date -->
