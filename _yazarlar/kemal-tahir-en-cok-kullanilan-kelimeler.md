@@ -4,6 +4,7 @@ title: Kemal Tahir — En çok kullanılan kelimeler
 description: Kemal Tahir eserlerinin kelime sıklığı grafiği.
 author: Kemal Tahir
 author_slug: kemal-tahir
+avatar: /assets/img/yazarlar/kemal-tahir.png
 permalink: /yazar/kemal-tahir-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

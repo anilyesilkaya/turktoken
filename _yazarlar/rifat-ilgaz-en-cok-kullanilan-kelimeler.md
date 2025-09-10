@@ -4,6 +4,7 @@ title: Rıfat Ilgaz — En çok kullanılan kelimeler
 description: Rıfat Ilgaz eserlerinin kelime sıklığı grafiği.
 author: Rıfat Ilgaz
 author_slug: rifat-ilgaz
+avatar: /assets/img/yazarlar/rifat-ilgaz.png
 permalink: /yazar/rifat-ilgaz-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

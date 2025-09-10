@@ -1,6 +1,6 @@
 {% assign data = site.data.yazarlar[include.author_slug] %}
 {% if data == nil %}
-  <p>Data not found for <code>{{ include.author_slug }}</code>.</p>
+  <p>Analiz gösterilemiyor. İlgili veri dosyası (<code>{{ include.author_slug }}.json</code>) bulunamadı.</p>
 {% else %}
   {% assign freq = data.total_stats %}
   <div id="chart-{{ include.author_slug }}" style="width:100%;height:520px"></div>

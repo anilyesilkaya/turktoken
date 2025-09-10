@@ -17,6 +17,7 @@ def to_md(data) -> str:
         "description" : data['metadata']['author'] + " eserlerinin kelime sıklığı grafiği.",
         "author" : data['metadata']['author'],
         "author_slug" : author_slug,
+        "avatar" : "/assets/img/yazarlar/" + author_slug + ".png",
         "permalink" : "/yazar/" + author_slug + "-en-cok-kullanilan-kelimeler/",
         "lang" : "tr",
         "titles" : data['metadata']['titles']
@@ -41,6 +42,7 @@ def main() -> None:
     # Extract the relevant information from the JSON file
     all_files = os.listdir(Path(args.input))
     
+    print("\n ----- \n")
     for fname in all_files:
         out_fname = re.sub(".json", "", fname) + "-en-cok-kullanilan-kelimeler" + ".md"
 
@@ -57,6 +59,7 @@ def main() -> None:
         # description: "Ahmet Ümit eserlerinin kelime sıklığı grafiği."
         # author: "Ahmet Ümit"
         # author_slug: "ahmet-umit"
+        # avatar: /assets/img/authors/ahmet-umit.jpg
         # permalink: "/yazar/ahmet-umit-top-kelimeler/"
         # lang: tr
         # titles:
@@ -78,6 +81,8 @@ def main() -> None:
         
         # Display the progress
         print(f"    ✔ Processed {out_fname}")
+
+    print("\n ----- \n")
 
 # Main function call
 if __name__ == "__main__":

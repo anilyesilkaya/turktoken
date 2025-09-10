@@ -4,6 +4,7 @@ title: Yusuf Atılgan — En çok kullanılan kelimeler
 description: Yusuf Atılgan eserlerinin kelime sıklığı grafiği.
 author: Yusuf Atılgan
 author_slug: yusuf-atilgan
+avatar: /assets/img/yazarlar/yusuf-atilgan.png
 permalink: /yazar/yusuf-atilgan-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

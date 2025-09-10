@@ -4,6 +4,7 @@ title: Halil İnalcık — En çok kullanılan kelimeler
 description: Halil İnalcık eserlerinin kelime sıklığı grafiği.
 author: Halil İnalcık
 author_slug: halil-inalcik
+avatar: /assets/img/yazarlar/halil-inalcik.png
 permalink: /yazar/halil-inalcik-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

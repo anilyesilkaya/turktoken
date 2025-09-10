@@ -4,6 +4,7 @@ title: İlber Ortaylı — En çok kullanılan kelimeler
 description: İlber Ortaylı eserlerinin kelime sıklığı grafiği.
 author: İlber Ortaylı
 author_slug: ilber-ortayli
+avatar: /assets/img/yazarlar/ilber-ortayli.png
 permalink: /yazar/ilber-ortayli-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

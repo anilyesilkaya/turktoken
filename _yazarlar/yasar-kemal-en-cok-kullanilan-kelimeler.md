@@ -4,6 +4,7 @@ title: Yaşar Kemal — En çok kullanılan kelimeler
 description: Yaşar Kemal eserlerinin kelime sıklığı grafiği.
 author: Yaşar Kemal
 author_slug: yasar-kemal
+avatar: /assets/img/yazarlar/yasar-kemal.png
 permalink: /yazar/yasar-kemal-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

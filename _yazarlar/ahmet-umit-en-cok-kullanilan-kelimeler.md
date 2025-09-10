@@ -4,6 +4,7 @@ title: Ahmet Ümit — En çok kullanılan kelimeler
 description: Ahmet Ümit eserlerinin kelime sıklığı grafiği.
 author: Ahmet Ümit
 author_slug: ahmet-umit
+avatar: /assets/img/yazarlar/ahmet-umit.png
 permalink: /yazar/ahmet-umit-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

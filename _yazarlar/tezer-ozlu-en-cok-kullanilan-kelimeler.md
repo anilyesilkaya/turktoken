@@ -4,6 +4,7 @@ title: Tezer Özlü — En çok kullanılan kelimeler
 description: Tezer Özlü eserlerinin kelime sıklığı grafiği.
 author: Tezer Özlü
 author_slug: tezer-ozlu
+avatar: /assets/img/yazarlar/tezer-ozlu.png
 permalink: /yazar/tezer-ozlu-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

@@ -4,6 +4,7 @@ title: Sabahattin Ali — En çok kullanılan kelimeler
 description: Sabahattin Ali eserlerinin kelime sıklığı grafiği.
 author: Sabahattin Ali
 author_slug: sabahattin-ali
+avatar: /assets/img/yazarlar/sabahattin-ali.png
 permalink: /yazar/sabahattin-ali-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

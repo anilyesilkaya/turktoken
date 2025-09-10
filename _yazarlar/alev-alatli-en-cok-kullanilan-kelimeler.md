@@ -4,6 +4,7 @@ title: Alev Alatlı — En çok kullanılan kelimeler
 description: Alev Alatlı eserlerinin kelime sıklığı grafiği.
 author: Alev Alatlı
 author_slug: alev-alatli
+avatar: /assets/img/yazarlar/alev-alatli.png
 permalink: /yazar/alev-alatli-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

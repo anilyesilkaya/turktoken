@@ -1,0 +1,20 @@
+{
+  "metadata": {
+    "author": "Ahmet Ümit",
+    "titles": [
+      "Sultanı Öldürmek",
+      "Agatha'nın Anahtarı",
+      "Patasana",
+      "Sis ve Gece",
+      "Beyoğlu'nun En Güzel Abisi",
+      "İstanbul Hatırası",
+      "Kar Kokusu",
+      "İnsan Ruhunun Haritası",
+      "Beyoğlu Rapsodisi"
+    ],
+    "processed_at": "2025-08-26T16:00:24"
+  },
+  "total_stats": { "adam": 120, "gibi": 95 },
+  "char_stats":  { "a": 33211, "e": 31002},
+  "bpe_stats":   { "▁İstan": 1021, "bul": 970}
+}

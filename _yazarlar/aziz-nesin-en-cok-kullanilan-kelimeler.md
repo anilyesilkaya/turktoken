@@ -4,6 +4,7 @@ title: Aziz Nesin — En çok kullanılan kelimeler
 description: Aziz Nesin eserlerinin kelime sıklığı grafiği.
 author: Aziz Nesin
 author_slug: aziz-nesin
+avatar: /assets/img/yazarlar/aziz-nesin.png
 permalink: /yazar/aziz-nesin-en-cok-kullanilan-kelimeler/
 lang: tr
 titles:

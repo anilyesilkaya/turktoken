@@ -318,6 +318,28 @@ li { margin-bottom: 0.4rem; }
 }
 .author-thumb.no-image .thumb-fallback { display: flex; }
 
+/* Image / headshot */
+.author-headshot {
+  position: relative;
+}
+
+.author-headshot img {
+  width:250px;
+  height:auto;
+  border-radius:12px;
+}
+
+.headshot-fallback {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: #7aa7e6;
+}
+.author-headshot.no-image .headshot-fallback { display: flex; }
+
 /* Meta row */
 .author-meta {
   display: flex;
@@ -346,4 +368,39 @@ li { margin-bottom: 0.4rem; }
 @media (max-width: 360px) {
   .author-grid { grid-template-columns: 1fr; }
 }
+
+/* Additional yazar.html styles that work with the existing CSS */
+  .viz-tab.active {
+    background-color: #0066cc !important;
+    color: #fff !important;
+  }
+  
+  .viz-tab:not(.active) {
+    background-color: #f8f9fa !important;
+    color: #333 !important;
+  }
+  
+  .viz-tab:hover:not(.active) {
+    background-color: #e5e7eb !important;
+  }
+  
+  /* Ensure the author headshot maintains aspect ratio */
+  .author-headshot img {
+    width: 250px;
+    height: auto;
+    display: block;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .author-headshot img {
+      width: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .author-headshot img {
+      width: 150px;
+    }
+  }
 
