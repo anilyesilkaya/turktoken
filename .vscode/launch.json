@@ -43,6 +43,28 @@
                 "--input", "${workspaceFolder}/_data/yazarlar/",
                 "--output", "${workspaceFolder}/_yazarlar/"
             ]
+        },
+        {
+            "name": "epub_processor.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/utils/epub_processor.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "args": [
+                "--input", "${workspaceFolder}/../../Turkish Book Corpus/turkish-book-corpus/Corpus",
+                "--output", "${workspaceFolder}/utils/tokenized",
+                "--mode", "char"
+            ]
+        },
+        {
+            "name": "test.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/utils/test.py",
+            "console": "integratedTerminal",
+            "args": [
+            ]
         }
     ]
 }
