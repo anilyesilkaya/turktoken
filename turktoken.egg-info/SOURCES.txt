@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-turktoken/__init__.py
-turktoken/setup.py
-turktoken/tokenizer.py
-turktoken.egg-info/PKG-INFO
-turktoken.egg-info/SOURCES.txt
-turktoken.egg-info/dependency_links.txt
-turktoken.egg-info/top_level.txt
