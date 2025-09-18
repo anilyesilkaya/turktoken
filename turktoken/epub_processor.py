@@ -61,11 +61,26 @@ def main() -> None:
         files_list = list(set(os.listdir(Path(input,yazar))))
         print(f"\t\n Processing...{yazar}")
         print("----------")
+        
+        # Open JSON if exists
+        outfile = Path(output, mode + "_" + slugify(yazar) + ".json")
+        if outfile.exists():
+            with open(outfile, "r", encoding="utf-8") as f:
+                try:
+                    author_json = json.load(f)
+                except json.JSONDecodeError:
+                    author_json = {}
+        else:
+            author_json = {}
+
+        # Make sure it's a dict
+        if not isinstance(author_json, dict):
+            author_json = {}
     
         # -------------------------
         # Loop over each file
         # -------------------------
-        data = {}
+        stats = {}
         for dosya in files_list:
             try:
                 book = epub.read_epub(Path(args.input, yazar, dosya))
@@ -80,13 +95,7 @@ def main() -> None:
                 title = re.sub(r'.epub', '', procname[1]).strip()
             else:
                 raise ValueError("Unkown file naming convention.")
-            
-            metadata = {
-                "title": title,
-                "author": author,
-                "processed_at": datetime.now().isoformat(timespec="seconds")
-            }
-            
+
             # -------------------------
             # Iterate through the sections of the book
             # -------------------------
@@ -100,21 +109,26 @@ def main() -> None:
                     txt = tokenizer.preprocess_text(text)
                     
                     # Tokenize the text
-                    data = tokenizer.analyze_text(txt, data)
+                    stats = tokenizer.analyze_text(txt, stats)
                     
             # Record the processed data
-            stats = {
-                "metadata": metadata,
-                "data": sorted(data.items(), key=lambda item:item[1], reverse=True)
+            metadata = {
+                "title": title,
+                "author": author,
+                "processed_at": datetime.now().isoformat(timespec="seconds")
             }
-            
+
+            author_json[title] = {
+                "metadata": metadata,
+                "data": sorted(stats.items(), key=lambda item:item[1], reverse=True)
+            }
+
+            # Save JSON
+            with open(outfile, 'w') as json_file:
+                json.dump(author_json, json_file, indent=4)
+
             # Progress
             print(f"\t✅ Processed - {title}")
-
-        # Save JSON per author
-        with open(Path(output, mode + "_" + slugify(yazar) + ".json"), 'w') as json_file:
-            json.dump(stats, json_file, indent=4)
-
 
 # Main function call
 if __name__ == "__main__":
