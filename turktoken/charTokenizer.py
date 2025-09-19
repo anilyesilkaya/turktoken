@@ -1,5 +1,6 @@
 import unicodedata
 import re
+import regex
 
 class Tokenizer:
     """
@@ -14,14 +15,20 @@ class Tokenizer:
             -- <UNK>: Unknown
             -- <BOS>: Beginning of a sequence
             -- <EOS>: End of a sequence
+            -- <SPC>: Space
     """
-    DEFAULT_SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>"]
+    DEFAULT_SPECIALS = ["<PAD>", "<UNK>", "<BOS>", "<EOS>", "<SPC>"]
     
     # Constructor
     def __init__(self, max_length=64):
         self.max_length = max_length
     
     # Methods
+    def normalize_text(self, text:str =[]):
+        # Turkish text normalization
+        # text = text.replace("İ", "i").replace("I", "ı").
+        return text.lower()
+    
     def preprocess_text(self, text:str = []):
         """
         Preprocesses text for character-level tokenization.
@@ -31,6 +38,7 @@ class Tokenizer:
             - Newline normalization (converts \r\n and \r to \n)
             - Collapses multiple spaces and tabs into a single space
         """
+
         # Unicode normalization (important for composed/decomposed chars)
         text = unicodedata.normalize("NFC", text)
 
@@ -54,29 +62,32 @@ class Tokenizer:
     def analyze_text(self, text:str = [], data:dict = {}, case_sensitive=False):
         """
         Tokenize the text
+        \u0131 → ı (dotless i, small i without dot)
+        \u00fc → ü (u with diaeresis)
+        \u011f → ğ (g with breve)
+        \u015f → ş (s with cedilla)
+        \u00e7 → ç (c with cedilla)
+        \u00f6 → ö (o with diaeresis)
+        \u0307 → ◌̇ (combining dot above – often appears in Turkish text normalization 
+                        when separating i into ı + ̇)
         """
         
         # Preprocessing
-        TOKEN_PATTERN = re.compile(r'''
-                                \u2026|\.{3}            # ellipsis (… or '...')
-                            | —                       # em dash
-                            | ’                       # curly apostrophe
-                            | [-=_~\[\]/\\¬]          # single-character symbols
-                            | [.!?,;:()\[\]{}'"“”‘’]  # other punctuation (includes " and ')
-                            | [^\s.!?,;:()\[\]{}'"]+  # everything else (words, numbers, etc.)
-                            ''', re.VERBOSE)
-
+        # Lower-case with Turkish i's in mind
         if not case_sensitive:
-            text = text.lower()
-        
-        proc_text = re.findall(TOKEN_PATTERN, text)
+            text = self.normalize_text(text)
+
+        proc_text = regex.findall(r"\X", text)
         
         # Tokenization
         for item in proc_text:
-            if len(item) > 1:                
+            if len(item) > 1:          
                 for c in item:
                     data = self.add_token(data, c)
             else:
-                data = self.add_token(data, item)
+                if item == " ":
+                    data = self.add_token(data, "<SPC>")
+                else:
+                    data = self.add_token(data, item)
 
         return data

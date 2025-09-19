@@ -9,6 +9,10 @@ from ebooklib import epub
 from bs4 import BeautifulSoup
 from pathlib import Path
 from datetime import datetime
+from collections import Counter
+
+def unicode_demap(self):
+    pass
 
 def slugify(text):
     # Mapping for Turkish -> English chars
@@ -45,7 +49,6 @@ def main() -> None:
     
     # Process parameters
     input = Path(args.input)
-    output = Path(args.output)
     mode = args.mode
     
     # Tokenizer object
@@ -57,36 +60,25 @@ def main() -> None:
     # -------------------------
     # Loop over ech author
     # -------------------------
-    for yazar in authors_list:
+    total_stats = {}
+    for i, yazar in enumerate(authors_list, start=1):
+        yazar_json = {}
         files_list = list(set(os.listdir(Path(input,yazar))))
-        print(f"\t\n Processing...{yazar}")
+        output = Path(args.output, mode + "_" + slugify(yazar) + ".json")
+        print(f"\t\n ({i}/{len(authors_list)}) Processing...{yazar}")
         print("----------")
-        
-        # Open JSON if exists
-        outfile = Path(output, mode + "_" + slugify(yazar) + ".json")
-        if outfile.exists():
-            with open(outfile, "r", encoding="utf-8") as f:
-                try:
-                    author_json = json.load(f)
-                except json.JSONDecodeError:
-                    author_json = {}
-        else:
-            author_json = {}
 
-        # Make sure it's a dict
-        if not isinstance(author_json, dict):
-            author_json = {}
-    
         # -------------------------
         # Loop over each file
-        # -------------------------
-        stats = {}
+        # -------------------------        
+        dosya_idx = 0
         for dosya in files_list:
             try:
                 book = epub.read_epub(Path(args.input, yazar, dosya))
             except:
                 print(f"❌ - {dosya}")
                 continue
+            dosya_stats = {}
         
             # Extract metadata from the file name
             procname = re.split('--', dosya, maxsplit=1)
@@ -98,7 +90,7 @@ def main() -> None:
 
             # -------------------------
             # Iterate through the sections of the book
-            # -------------------------
+            # -------------------------            
             for item in book.get_items():
                 if item.get_type() == ebooklib.ITEM_DOCUMENT:
                     # Parse the HTML content
@@ -109,8 +101,8 @@ def main() -> None:
                     txt = tokenizer.preprocess_text(text)
                     
                     # Tokenize the text
-                    stats = tokenizer.analyze_text(txt, stats)
-                    
+                    dosya_stats = tokenizer.analyze_text(txt, dosya_stats)
+
             # Record the processed data
             metadata = {
                 "title": title,
@@ -118,17 +110,25 @@ def main() -> None:
                 "processed_at": datetime.now().isoformat(timespec="seconds")
             }
 
-            author_json[title] = {
+            yazar_json[dosya_idx] = {
                 "metadata": metadata,
-                "data": sorted(stats.items(), key=lambda item:item[1], reverse=True)
+                "data": sorted(dosya_stats.items(), key=lambda item:item[1], reverse=True)
             }
+            total_stats = dict(Counter(total_stats) + Counter(dosya_stats))
+            
+            # Increment the book index
+            dosya_idx += 1
 
             # Save JSON
-            with open(outfile, 'w') as json_file:
-                json.dump(author_json, json_file, indent=4)
+            with open(output, 'w') as json_file:
+                json.dump(yazar_json, json_file, ensure_ascii=False, indent=4)
 
             # Progress
             print(f"\t✅ Processed - {title}")
+
+    # Save total stats
+    with open(Path(args.output, mode + "_TOTAL_STATS.json"), 'w') as json_file:
+        json.dump(sorted(total_stats.items(), key=lambda item:item[1], reverse=True), json_file, ensure_ascii=False, indent=4)
 
 # Main function call
 if __name__ == "__main__":
