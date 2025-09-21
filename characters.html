@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <title>Karakter Frekansları</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    body { font-family: sans-serif; max-width: 900px; margin: 2rem auto; }
+  </style>
+</head>
+<body>
+  <h1>Türkçe Kitap Korpusu — Karakter Frekansları</h1>
+  <div id="chart" style="width:100%;height:700px;"></div>
+
+  <script>
+    // Option A: Inline your JSON
+    const raw = [
+      ["<SPC>",12843048],
+      ["a",9171977],
+      ["e",7217574],
+      ["i",6804627],
+      ["n",5706389],
+      ["r",5369506],
+      // … add the rest …
+    ];
+
+    // Preprocess
+    const chars  = raw.map(([ch]) => ch);
+    const counts = raw.map(([ ,c]) => c);
+
+    // Plot
+    Plotly.newPlot("chart", [{
+      x: counts,
+      y: chars,
+      type: "bar",
+      orientation: "h"
+    }], {
+      margin: {l: 120, r: 10, t: 30, b: 40},
+      xaxis: {title: "Frekans"},
+      yaxis: {automargin:true}
+    });
+  </script>
+</body>
+</html>
