@@ -1,0 +1,38 @@
+.content{
+    display: block;
+    text-align: center;
+    background-color: ghostwhite;
+    padding: 1rem 1rem;
+    width: 50%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2rem;
+}
+
+.title--main{
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+}
+
+.title--sub{
+    font-size: medium;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+    color: gray;
+}
+
+.code--block{
+    background-color: #282c34;
+    color: #abb2bf;
+    padding: 1rem 1rem;
+    overflow-x: auto;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    tab-size: 4;
+    counter-reset: line; /* Add counter reset here */
+}
